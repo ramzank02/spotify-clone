@@ -1,0 +1,80 @@
+
+.border {
+    border: 2px solid red;
+    margin: 3px;
+}
+
+
+.flex {
+    display: flex;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.item-center {
+    align-items: center;
+}
+
+.bg-black{
+    background-color: black;
+    color: white;
+}
+
+.invert {
+    filter: invert(1);
+}
+
+.bg-grey {
+    background-color: #121212;
+    color: white;
+}
+
+.rounded {
+    border-radius: 7px;
+}
+
+.m-1 {
+    margin: 5px;
+}
+
+.p-1{
+    padding: 10px;
+}
+
+
+.playMusic:hover{
+    cursor: pointer;
+}
+
+
+
+/* dark theme scroll bar */
+
+/* Webkit Browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #1c1c1c; /* Dark track color */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #3a3a3a; /* Darker thumb color */
+    border-radius: 6px; /* Rounded edges */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #575757; /* Slightly lighter on hover */
+}
+
+/* Firefox */
+scrollbar-width: thin; /* Makes scrollbar thinner in Firefox */
+scrollbar-color: #3a3a3a #1c1c1c; /* thumb color, track color */
+
+  
+
+
+

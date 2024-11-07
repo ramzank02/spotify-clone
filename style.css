@@ -1,0 +1,330 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+ background-color: black;
+ color: white;
+ box-sizing: border-box;
+ overflow-x: hidden;
+}
+
+
+.left {
+    width: 25vw;
+    padding: 10px;
+}
+
+.right {
+    width: 75vw;
+    margin: 16px 0;
+    margin-right: 8px;
+    position: relative;
+}
+
+
+
+.home ul li {
+    display: flex;
+    width: 14px;
+    gap: 15px;
+    list-style: none;    
+    padding-top: 14px;
+    font-weight: bold;
+}
+
+.library{
+    min-height: 75vh;
+    position: relative;
+}
+
+
+.heading{
+    display: flex;
+    width: 100%;
+    gap: 15px;   
+    padding-top: 14px;
+    padding: 23px 14px;
+    font-weight: bold;
+    align-items: center;
+    font-size: 13px; 
+
+}
+
+.heading img{
+    width: 30px;
+}
+
+.hamburger{
+    display: none;
+}
+
+.hamburgerContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+}
+
+.close{
+    display: none;
+}
+
+.footer {
+    display: flex;
+    font-size: 9px;
+    color: gray;
+    gap: 5px;
+    position: absolute;
+    bottom: 0;
+    padding: 10px;
+}
+
+.footer a{
+    color: gray;
+    white-space: nowrap;
+    text-decoration: none;
+    font-weight: bold;
+    
+
+}
+
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    background-color: #222222;
+    height: 80px;
+}
+
+.header > *{
+    padding: 15px;
+}
+
+.cardContainer{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 30px;
+    overflow-y: auto;
+    max-height: 70vh;
+}
+
+
+.spotifyPlaylist{
+    padding: 16px;
+    font-size: 10px;
+}
+
+
+.card{
+    width: 180px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #252525;
+    position: relative;
+}
+
+.card > *{
+    padding-top: 10px;
+}
+
+
+.card img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.play{
+    width: 40px;
+    position: absolute;
+    top: 160px;
+    right: 17px;
+    opacity: 1;
+    transition: all 1s ease-out;
+}
+
+.buttons > *{
+    margin: 0 12px;
+ 
+}
+
+.signupbtn{
+    background-color: #222222;
+    border: none;
+    outline: none;
+    color: rgb(156, 148, 148);
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.signupbtn:hover{
+    font-size: 17px;
+    color: white;
+}
+
+.loginbtn{
+    background-color: #fff;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 50px;
+    padding: 15px 10px;
+    width: 120px;
+    font-size: 15px;
+}
+
+.loginbtn:hover{
+   transform: scale(1.03);
+   font-size: 16px;
+ 
+}
+
+
+.playbar{
+    position: absolute;
+    bottom: 1px;
+    filter: invert(1);
+    background-color: #dad5d5;
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    width: 68vw; 
+    height: 40px;
+}
+
+.songButtons img{
+    width: 15px;
+    cursor: pointer;
+}
+
+#playbtn{
+    width: 30px;
+}
+
+.songButtons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 45px;
+}
+
+.songList ul{
+    padding:px;
+}
+
+.songList{
+    height: 400px;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.songList ul li{
+    list-style-type: decimal;
+    display: flex;
+    gap: 15px;
+    padding: 12px 0;
+    margin: 12px;
+    border-radius: 5px;
+    border: 1px solid white;
+    padding: 13px;
+    width: 295px;
+}
+
+
+.playNow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.playNow img{
+    width: 40px;
+}
+
+.playNow span{
+    font-size: 12px;
+    width: 60px;
+    padding: 12px;
+}
+
+.info div{
+    width: 100px;
+
+}
+
+
+.song-name, .artist-name {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+  }
+
+  .seekbar{
+    height: 3px;
+    width: 97%;
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    border-radius: 20px;
+    margin: 6px;
+    cursor: pointer;
+
+  }
+
+  .circle{
+    width: 13px;
+    height: 13px;
+    border-radius: 13px;
+    background-color: black;
+    position: relative;
+    bottom: 6px;
+    left: 0%;
+    transition: left 0.5s;
+  }
+
+  .playbarContainer{
+    display: flex;
+    justify-content: space-between;
+  }
+
+
+  .songInfo, .songTime{
+    padding: 0 12px;
+    width: 100%;
+    margin: 9px;
+    font-weight: bold;
+    color: #1ed760;
+    filter: invert(1);
+    
+   
+  }
+
+  .songTime{
+    position: relative;
+    left: 242px;
+  }
+  
+  .progress {
+    position: absolute;
+    height: 100%;
+    background-color: #1ed760; /* Set the color you want for the progress */
+    width: 0%; /* Start at 0% and increase dynamically */
+    filter: invert(1);
+  }
+  
+
+  
+
