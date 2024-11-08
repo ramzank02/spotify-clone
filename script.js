@@ -3,6 +3,7 @@ let prev = document.getElementById("prevbtn")
 let next = document.getElementById("nextbtn")
 
 let currentSong = new Audio();
+let songs;
 
 
 function convertSecondsToTime(seconds) {
@@ -64,11 +65,11 @@ async function main() {
 
 
   //get the list of all the songs
-  let songs = await getSongs()
+  songs = await getSongs()
   playMusic(songs[0], true)
 
 
-  // show all the songs in the playlist
+  // showing all the songs in the playlist
   let songUl = document.querySelector(".songList").getElementsByTagName("ul")[0]
   for (const song of songs) {
     songUl.innerHTML = songUl.innerHTML + `<li>   <img class="invert" src="./assets/music.svg" alt="music icon">
@@ -95,7 +96,7 @@ async function main() {
 
   })
 
-  // attach an event listner to play, next and prev
+  // attach an event listner to play,
   play.addEventListener("click", () => {
     if (currentSong.paused) {
       currentSong.play()
@@ -114,21 +115,45 @@ async function main() {
     document.querySelector(".circle").style.left = (currentSong.currentTime/currentSong.duration) * 100 + "%"
   })
 
-  // add an event listner to seekbar
+  // adding an event listner to seekbar
      document.querySelector('.seekbar').addEventListener("click", e=>{
       let percent = (e.offsetX/e.target.getBoundingClientRect().width) * 100
       document.querySelector(".circle").style.left = percent + "%";
       currentSong.currentTime = (currentSong.duration * percent)/100  
      })
 
-     // add an event listner to hamburger icon
+     // adding an event listner to hamburger icon
      document.querySelector('.hamburger').addEventListener('click', e => {
            document.querySelector('.left').style.left= "0"
      })
 
-     // add an event listner to close icon
+     // adding an event listner to close icon
      document.querySelector('.close').addEventListener('click', () => {
       document.querySelector('.left').style.left = "-100%"
+     })
+
+
+     // adding event listner to prev and nxt 
+
+     prev.addEventListener('click', () => {
+      console.log("previous is clicked")
+      console.log(currentSong);
+      let index = songs.indexOf(currentSong.src.split("/").slice(-1) [0])
+      if ((index-1) >= 0) {
+        playMusic(songs[index-1])
+      }
+      
+     })
+
+     next.addEventListener('click', () => {
+      currentSong.pause()
+      console.log("next is clicked")
+      console.log(currentSong);
+      let index = songs.indexOf(currentSong.src.split("/").slice(-1) [0])
+      if ((index+1) < songs.length) {
+        playMusic(songs[index+1])
+      }
+      
      })
 
 
@@ -137,14 +162,18 @@ async function main() {
 main()
 
 
-// Update the progress bar as the song plays
+
+
+// Updating the progress bar as the song plays
+
+
 currentSong.addEventListener("timeupdate", () => {
   let percent = (currentSong.currentTime / currentSong.duration) * 100;
 
-//   Update the width of the progress bar based on the current time
+//   Updating the width of the progress bar based on the current time
   document.querySelector(".progress").style.width = percent + "%";
 
-//   Update the position of the circle as the song progresses
+//   Updating the position of the circle as the song progresses
   document.querySelector(".circle").style.left = percent + "%";
 });
 

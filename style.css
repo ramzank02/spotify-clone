@@ -213,10 +213,13 @@ body {
 }
 
 .songButtons{
+   
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 45px;
+    position: relative;
+    left: 88px;
 }
 
 .songList ul{
@@ -314,8 +317,25 @@ body {
 
   .songTime{
     position: relative;
-    left: 242px;
+    left: 253px;
   }
+
+  .volume img{
+    position: relative;
+    right: 14px;
+}
+
+.range{
+    position: relative;
+    top: 6px;
+   
+}
+
+.range input{
+    cursor: pointer;
+}
+
+  
   
   .progress {
     position: absolute;
