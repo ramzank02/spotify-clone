@@ -116,6 +116,7 @@ async function main() {
   })
 
   // adding an event listner to seekbar
+
      document.querySelector('.seekbar').addEventListener("click", e=>{
       let percent = (e.offsetX/e.target.getBoundingClientRect().width) * 100
       document.querySelector(".circle").style.left = percent + "%";
@@ -123,11 +124,13 @@ async function main() {
      })
 
      // adding an event listner to hamburger icon
+
      document.querySelector('.hamburger').addEventListener('click', e => {
            document.querySelector('.left').style.left= "0"
      })
 
      // adding an event listner to close icon
+
      document.querySelector('.close').addEventListener('click', () => {
       document.querySelector('.left').style.left = "-100%"
      })
@@ -156,10 +159,22 @@ async function main() {
       
      })
 
+     // adding an event listner to volume
+
+     document.querySelector('.range').getElementsByTagName('input')[0].addEventListener('change', (e) => {
+        console.log("setting volume to ",e.target.value,"/100")
+        currentSong.volume = parseInt(e.target.value)/100
+     })
+
 
 }
 
 main()
+
+
+
+
+
 
 
 
