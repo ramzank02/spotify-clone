@@ -4,6 +4,7 @@ let next = document.getElementById("nextbtn")
 
 let currentSong = new Audio();
 let songs;
+let currFolder;
 
 
 function convertSecondsToTime(seconds) {
@@ -26,8 +27,9 @@ function convertSecondsToTime(seconds) {
 
 
 
-async function getSongs() {
-  let a = await fetch("http://127.0.0.1:3000/songs/")
+async function getSongs(folder) {
+  currFolder = folder
+  let a = await fetch(`http://127.0.0.1:3000/${folder}/`)
   let response = await a.text();
   // console.log(response)
   let div = document.createElement("div")
@@ -37,7 +39,7 @@ async function getSongs() {
   for (let index = 0; index < as.length; index++) {
     const element = as[index];
     if (element.href.endsWith("mp3")) {
-      songs.push(element.href.split("/songs/")[1])
+      songs.push(element.href.split(`/${folder}/`)[1])
     }
   }
   return songs
@@ -48,7 +50,7 @@ async function getSongs() {
 
 const playMusic = (track, pause=false) => {
   // let audio = new Audio("/songs/" + track)
-  currentSong.src = "/songs/" + track
+  currentSong.src = `/${currFolder}/` + track
   if (!pause) {
     currentSong.play() 
     play.src = "./assets/pause.svg"
@@ -65,7 +67,7 @@ async function main() {
 
 
   // (get the list of all the songs)
-  songs = await getSongs()
+  songs = await getSongs("songs/ncs")
   playMusic(songs[0], true)
 
 
@@ -84,7 +86,7 @@ async function main() {
             </li>`;
   }
 
-  // (attach an event listner to each song)
+  // (attaching an event listner to each song)
 
   Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach(e => {
     e.addEventListener('click', element => {
@@ -179,7 +181,7 @@ main()
 
 
 
-// (Updating the progress bar as the song plays)
+//(Updating the progress bar as the song plays)
 
 
 currentSong.addEventListener("timeupdate", () => {
@@ -189,7 +191,5 @@ currentSong.addEventListener("timeupdate", () => {
   document.querySelector(".progress").style.width = percent + "%";
 
 //   (Updating the position of the circle as the song progresses)
-  document.querySelector(".circle").style.left = percent + "%";
-});
-(
-
+  document.querySelector(".circle").style.left = percent + "%"
+})
