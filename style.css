@@ -1,7 +1,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-
+:root{
+    --a:0;
+    --t:170px;
+}
 
 
 *{
@@ -19,7 +22,7 @@ body {
 
 
 .left {
-    width: 25vw;
+    width: 27vw;
     padding: 10px;
 }
 
@@ -115,7 +118,7 @@ body {
     flex-wrap: wrap;
     margin: 30px;
     overflow-y: auto;
-    max-height: 70vh;
+    max-height: 63vh;
 }
 
 
@@ -129,11 +132,22 @@ body {
     width: 180px;
     padding: 10px;
     border-radius: 5px;
-    background-color: #252525;
     position: relative;
+    background-color: transparent;
 }
 
-.card > *{
+.card:hover{
+    background-color: #252525;
+    cursor: pointer;
+    --a:1;
+    --t:150px;
+}
+
+.card h2{
+    padding: 10px 0px;
+}
+
+.card p {
     padding-top: 10px;
 }
 
@@ -141,15 +155,16 @@ body {
 .card img {
     width: 100%;
     object-fit: contain;
+    border-radius: 8px;
 }
 
 .play{
     width: 40px;
     position: absolute;
-    top: 160px;
+    top: var(--t);
     right: 17px;
-    opacity: 1;
-    transition: all 1s ease-out;
+    opacity: var(--a);
+    transition: all .2s ease-out;
 }
 
 .buttons > *{
@@ -208,6 +223,8 @@ body {
     cursor: pointer;
 }
 
+
+
 #playbtn{
     width: 30px;
 }
@@ -224,6 +241,12 @@ body {
 
 .songList ul{
     padding:px;
+    cursor: pointer;
+    
+}
+
+.songList ul li:hover{
+    background-color: #252525;
 }
 
 .songList{
